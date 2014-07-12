@@ -1,0 +1,24 @@
+# Some of this is mine (Ted Naleid), but much of it is cribbed from work by others:
+# Steve Losh - http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+# Geoffrey Grosenbach - http://peepcode.com/blog/2012/my-command-line-prompt
+# See those linked posts for details of what they do for their prompts
+
+# Colors
+autoload -U colors
+colors
+setopt PROMPT_SUBST 
+
+# green if last command was successful, otherwise red
+local redgreen="%(?,%{$fg[green]%},%{$fg[red]%})"
+
+function prompt_char {
+    git branch >/dev/null 2>/dev/null && echo '±' && return
+    hg root >/dev/null 2>/dev/null && echo '☿' && return
+    echo '○'
+}
+
+PROMPT='
+%{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} : ${redgreen}$history[$[HISTCMD-1]]%{$reset_color%}
+$(prompt_char)  %{$reset_color%}'
+
+RPROMPT='%{$fg[white]%} $($ZSHDIR/bin/scm-cwd-info.rb)%{$reset_color%}'

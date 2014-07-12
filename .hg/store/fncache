@@ -1,0 +1,10 @@
+data/README.txt.i
+data/zshrc_compinstall.i
+data/install.sh.i
+data/.hgignore.i
+data/bin/git-current-branch.i
+data/zshrc_general.i
+data/bin/scm-cwd-info.rb.i
+data/zshrc_grails_compinstall.i
+data/zshrc_prompt.i
+data/fourthwall.i
