@@ -1,6 +1,11 @@
 ##PROMPT Configurations##########
 #PROMPT='%d%>:%{\e[0m%}'
 
+####Drush Exports###########
+###Local Margots Mac
+export WIDGET_BUILD_ROOT='/Users/maxit/Sites/drupal/config'
+
+
 ## GENERAL EXPORTS ############################################################################################################
 
 #export PYTHONPATH=/usr/local/lib/python2.6/site-packages
@@ -176,7 +181,7 @@ alias sdi=site_destroy
 alias si=site_install # 1=dest_dir 2=make_file_name
 
 alias cs=config_site # 1=artifact_name, 2=env(i.e. dev, test,) 3=artifact_type(i.e. module, theme)
-alias cad=config_artifact_dependecies # 1=artifact_name, 2=artifact_type(i.e. module, theme) 3=env(i.e. dev, test, stage)
+alias cad=config_artifact_dependecies # 1=artifact_name, 2=type  3=env(i.e. dev, test, stage), 4=plus
 alias cas=config_artifact_settings # 1=artifact_name, 2=artifact_type(i.e. module, theme)
 
 function stage_any_artifact(){
@@ -204,7 +209,7 @@ sudo drush ../../config/drush-scripts/configure-$2-scripts/configure-$1-$3-$2.ph
 }
 
 function config_artifact_dependecies(){
-sudo drush ../../config/drush-scripts/configure-dependencies.php --artifact-name=$1 --artifact-type=$2 --env=$3
+sudo drush ../../config/drush-scripts/configure-dependencies.php --artifact-name=$1 --artifact-type=$2 --env=$3 --plus=$4
 }
 
 function config_artifact_settings(){
