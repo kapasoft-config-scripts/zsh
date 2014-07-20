@@ -174,6 +174,7 @@ alias bda=build_dist_any #1=artifact_name, 2=ver, 3=artifact_type(i.e.module, th
 alias bt=build_test # 1=artifact_name, 2=ver 3=artifiact_type(i.e. module, theme) has to be run from site root
 alias bta=build_test_any # 1=artifact_name, 2=ver 3=artifiact_type(i.e. module, theme) has to be run from site root
 alias daa=deploy_artifact_any # 1=artifact_name, 2=ver, 3=artifact_type(i.e. module, theme), 4=min-ver, 5=plus, 6=env  has to be run from site root
+alias ea=execute_action # 1=action_name, 2=par1, 3=par2(and so on)
 
 alias saa=stage_any_artifact # 1=artifact_name, 2=artifiact_type(i.e. module, theme) has to be run from site root
 
@@ -242,6 +243,10 @@ sudo drush ../../config/drush-scripts/build-dist-scripts/build-$1-$3-dist.php --
 
 function build_dist_any(){
 sudo drush ../../config/drush-scripts/build-dist-scripts/build-any-$3-dist.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --min=$4 --base-theme=$5 --plus=$6
+}
+
+function execute_action(){
+sudo drush ../../config/drush-scripts/actions/action--$1.php $2 $3 $4 $5
 }
 
 function drushgrepcommand(){
