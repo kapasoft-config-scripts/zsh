@@ -171,11 +171,12 @@ alias bud=backup_db
 
 alias bd=build_dist # 1=artifact_name, 2=ver, 3=artifact_type(i.e.module, theme)
 alias bda=build_dist_any #1=artifact_name, 2=ver, 3=artifact_type(i.e.module, theme) 4=min 5=base-theme 6=plus
+alias ba=build_artifact #1=artifact_name, 2=ver, 3=artifact_type(i.e.module, theme) --branch=? --min=?
 alias bt=build_test # 1=artifact_name, 2=ver 3=artifiact_type(i.e. module, theme) has to be run from site root
 alias bta=build_test_any # 1=artifact_name, 2=ver 3=artifiact_type(i.e. module, theme) has to be run from site root
 alias daa=deploy_artifact_any # 1=artifact_name, 2=ver, 3=artifact_type(i.e. module, theme), 4=min-ver, 5=plus, 6=env  has to be run from site root
+alias da=deploy_artifact # 1=artifact_name, 2=ver, 3=artifact_type(i.e. module, theme), 4=env, --branch=?, --min=? has to be run from site root
 alias ea=execute_action # 1=action_name, 2=par1, 3=par2(and so on)
-
 alias saa=stage_any_artifact # 1=artifact_name, 2=artifiact_type(i.e. module, theme) has to be run from site root
 
 alias sdi=site_destroy
@@ -184,6 +185,7 @@ alias si=site_install # 1=dest_dir 2=make_file_name
 alias cs=config_site # 1=artifact_name, 2=env(i.e. dev, test,) 3=artifact_type(i.e. module, theme)
 alias cad=config_artifact_dependecies # 1=artifact_name, 2=type  3=env(i.e. dev, test, stage), 4=plus
 alias cas=config_artifact_settings # 1=artifact_name, 2=artifact_type(i.e. module, theme)
+alias ca=config_artifact # 1=artifact_name 2=artifact_type
 
 function stage_any_artifact(){
 sudo drush ../../config/drush-scripts/build-stage-scripts/stage-any-$2.php --artifact-name=$1 --artifact-type=$2
@@ -213,6 +215,10 @@ function config_artifact_dependecies(){
 sudo drush ../../config/drush-scripts/configure-dependencies.php --artifact-name=$1 --artifact-type=$2 --env=$3 --plus=$4
 }
 
+function config_artifact(){
+sudo drush ../../config/drush-scripts/configure-artifact.php --artifact-name=$1 --artifact-type=$2 $*
+}
+
 function config_artifact_settings(){
 sudo drush ../../config/drush-scripts/configure-artifact/configure-$1-$2.php --artifact-name=$1 --artifact-type=$2
 }
@@ -235,6 +241,14 @@ sudo drush ../../config/drush-scripts/build-test-scripts/deploy-artifact-test.ph
 
 function deploy_artifact_any(){
 sudo drush ../../config/drush-scripts/deploy-artifact-any.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --min-ver=$4 --plus=$5 --env=$6
+}
+
+function deploy_artifact(){
+sudo drush ../../config/drush-scripts/deploy-artifact.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --env=$4 $*
+}
+
+function build_artifact(){
+sudo drush ../../config/drush-scripts/build-any-artifact-dist.php --artifact-name=$1 --ver=$2 --artifact-type=$3 $*
 }
 
 function build_dist(){
