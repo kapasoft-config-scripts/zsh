@@ -20,7 +20,7 @@ export VERBOSE="nil"
 
 export USER_LIB=/Users/$USER/Documents/workspace/lib
  
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 
 export SCALA_HOME=/usr/local/scala
 export NODE_PATH=/usr/local/lib/node_modules
@@ -187,81 +187,10 @@ alias cad=config_artifact_dependecies # 1=artifact_name, 2=type  3=env(i.e. dev,
 alias cas=config_artifact_settings # 1=artifact_name, 2=artifact_type(i.e. module, theme)
 alias ca=config_artifact # 1=artifact_name 2=artifact_type
 
-function stage_any_artifact(){
-sudo drush ../../config/drush-scripts/build-stage-scripts/stage-any-$2.php --artifact-name=$1 --artifact-type=$2
-}
-
-function drop_tables(){
-sudo drush ../../config/drush-scripts/db_scripts.php --drop-db
-}
-
-function import_db(){
-sudo drush ../../config/drush-scripts/db_scripts.php --import-db
-}
-
-function backup_db(){
-sudo drush ../../config/drush-scripts/db_scripts.php --backup-db
-}
-
 function show_api(){
-cat ~/shared-zshrc/zshrc_general | grep -B $2 -A $3 $1
+cat ~/tools/zsh/shared-zshrc/zshrc_general | grep -B $2 -A $3 $1
 }
 
-function config_site(){
-sudo drush ../../config/drush-scripts/configure-$2-scripts/configure-$1-$3-$2.php --env=$2 --artifact-name=$1 --artifact-type=$3
-}
-
-function config_artifact_dependecies(){
-sudo drush ../../config/drush-scripts/configure-dependencies.php --artifact-name=$1 --artifact-type=$2 --env=$3 --plus=$4
-}
-
-function config_artifact(){
-sudo drush ../../config/drush-scripts/configure-artifact.php --artifact-name=$1 --artifact-type=$2 $*
-}
-
-function config_artifact_settings(){
-sudo drush ../../config/drush-scripts/configure-artifact/configure-$1-$2.php --artifact-name=$1 --artifact-type=$2
-}
-
-function site_install(){
-sudo drush ../config/drush-scripts/install_site.php --build-dest=$1 --build-src=../config/builds/$2
-}
-
-function site_destroy(){
-sudo drush ../../config/drush-scripts/revert_changes.php --drop-tables --delete-root
-}
-
-function build_test(){
-sudo drush ../../config/drush-scripts/build-test-scripts/build-$1-$3-test.php --ver=$2 --artifact-name=$1 --artifact-type=$3
-}
-
-function build_test_any(){
-sudo drush ../../config/drush-scripts/build-test-scripts/deploy-artifact-test.php --ver=$2 --artifact-name=$1 --artifact-type=$3
-}
-
-function deploy_artifact_any(){
-sudo drush ../../config/drush-scripts/deploy-artifact-any.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --min-ver=$4 --plus=$5 --env=$6
-}
-
-function deploy_artifact(){
-sudo drush ../../config/drush-scripts/deploy-artifact.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --env=$4 $*
-}
-
-function build_artifact(){
-sudo drush ../../config/drush-scripts/build-any-artifact-dist.php --artifact-name=$1 --ver=$2 --artifact-type=$3 $*
-}
-
-function build_dist(){
-sudo drush ../../config/drush-scripts/build-dist-scripts/build-$1-$3-dist.php --ver=$2 --artifact-name=$1 --artifact-type=$3
-}
-
-function build_dist_any(){
-sudo drush ../../config/drush-scripts/build-dist-scripts/build-any-$3-dist.php --ver=$2 --artifact-name=$1 --artifact-type=$3 --min=$4 --base-theme=$5 --plus=$6
-}
-
-function execute_action(){
-sudo drush ../../config/drush-scripts/actions/action--$1.php $2 $3 $4 $5
-}
 
 function drushgrepcommand(){
 drush | grep -i $1
@@ -402,7 +331,7 @@ alias nm='nmap -PN'
 
 # from https://github.com/tednaleid/zsh-syntax-highlighting
 if [ -z $ZSH_SYNTAX_HIGHLIGHTING ]; then
-    export ZSH_SYNTAX_HIGHLIGHTING=~/bin/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export ZSH_SYNTAX_HIGHLIGHTING=~/tools/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 if [ -e  ]; then
@@ -901,3 +830,12 @@ function tailtomcat() {
     ssh $1 tail -f /var/log/tomcat6/catalina.out
 }
 
+
+
+npp () {
+    /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe -multiInst -nosession -noPlugin $(cygpath -w -- "$@")
+}
+#launches all typical vi commands in notepad++
+vi () {
+    /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe -multiInst -nosession -noPlugin $(cygpath -w -- "$@")
+}
