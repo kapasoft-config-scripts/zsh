@@ -2,9 +2,9 @@
 #PROMPT='%d%>:%{\e[0m%}'
 
 ####mount on booti
-sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) workflow-lib ~/tools/workflow-lib
-sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) workflow ~/workflow
-sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) ds_workflow ~/ds_workflow
+#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) workflow-lib ~/tools/workflow-lib
+#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) workflow ~/workflow
+#sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) ds_workflow ~/ds_workflow
 
 #sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) dev-metronic /home/websites/dev/metronic
 
