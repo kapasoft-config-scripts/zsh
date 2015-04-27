@@ -38,7 +38,7 @@ export GRADLE_REPOSITORY="$HOME/.gradle"
 export DISPLAY="localhost:0.0"
 
 export WORKSPACE_DIR=~/workspace
-export WORKSPACE_DRUPAL_DIR=~/ds_workflow
+export WORKFLOW_DIR=~/ds_workflow
 export WORKSPACE_PERS_DIR=~/workspace-personal
 export CATALINA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8999,server=y,suspend=n -Djava.awt.headless=true'
 export CATALINA_HOME='/usr/local/tomcat'
@@ -56,7 +56,7 @@ export MONGODB_HOME='/usr/local/mongodb'
 export RUBYOPT=rubygems
 export REDIS_HOME='/Users/maxit/DevTools/redis-2.6.11'
 
-#PATH=":/Users/maxit/DevTools/git/git:/Users/maxit/DevTools/lessphp:$REDIS_HOME/src:/opt/local/lib/mysql55/bin:/DevTools/geb/geb-core-0.7.2.jar:/opt/local/bin:$HOME/bin:/usr/local/bin:/usr/local/sbin:/Users/maxit/DevTools/grails/grails-scripts:$GRAILS_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$JODA_TIME_HOME/joda-time.jar:$JODA_TIME_HIBERNATE/joda-time-hibernate.jar:$VERTX_HOME/bin:/usr/local/redis:$CATALINA_HOME/bin:${PATH}:/DevTools/cglib/cglib-nodep-2.2.3.jar"
+PATH="$REDIS_HOME/src:/opt/local/lib/mysql55/bin:/opt/local/bin:/usr/local/bin:$HOME/bin:/usr/local/sbin:$GRAILS_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$VERTX_HOME/bin:/usr/local/redis:$CATALINA_HOME/bin:${PATH}:$PATH"
 
 export WORDS=/usr/share/dict/words
 
@@ -95,7 +95,7 @@ md() {
 }
 
 alias cdw='cd ${WORKSPACE_DIR}'
-alias cdwd='cd ${WORKSPACE_DRUPAL_DIR}'
+alias cdwd='cd ${WORKFLOW_DIR}'
 alias cdwp='cd ${WORKSPACE_PERS_DIR}'
 
 cdWhichDirname() {
