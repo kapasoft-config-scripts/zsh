@@ -38,7 +38,7 @@ export GRADLE_REPOSITORY="$HOME/.gradle"
 export DISPLAY="localhost:0.0"
 
 export WORKSPACE_DIR=~/workspace
-export WORKSPACE_DRUPAL_DIR=~/Sites/drupal
+export WORKSPACE_DRUPAL_DIR=~/ds_workflow
 export WORKSPACE_PERS_DIR=~/workspace-personal
 export CATALINA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8999,server=y,suspend=n -Djava.awt.headless=true'
 export CATALINA_HOME='/usr/local/tomcat'
@@ -187,8 +187,38 @@ alias cad=config_artifact_dependecies # 1=artifact_name, 2=type  3=env(i.e. dev,
 alias cas=config_artifact_settings # 1=artifact_name, 2=artifact_type(i.e. module, theme)
 alias ca=config_artifact # 1=artifact_name 2=artifact_type
 
+alias st=assetStatus # 1=asset-name
+alias info=assetInfo # 1=asset-name
+alias diff=assetDiff # 1=artifact-name
+alias up=updateWorkDir # 1=artifact-name 2=message
+alias up-all=updateWorkDirAll # 1=asset-name 2=message
+
+function assetInfo(){
+drush ea get_artifact_info --asset=$1 $*
+}
+
+function assetStatus(){
+drush ea list_updated_artifacts --asset=$1 $*
+}
+
+function assetDiff(){
+drush ea see_diff --param=$1 $*
+}
+
+function updateWorkDir(){
+drush ea update_work_dir --param=$1,$2 $*
+}
+
+function updateWorkDirAll(){
+drush ea update_all_work_dir --asset=$1 --param=$2 $*
+}
+
+
+
+
+
 function show_api(){
-cat ~/tools/zsh/shared-zshrc/zshrc_general | grep -B $2 -A $3 $1
+cat ~/tools/zsh/zshrc_general | grep -B $2 -A $3 $1
 }
 
 
