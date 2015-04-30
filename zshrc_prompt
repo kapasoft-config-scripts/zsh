@@ -21,4 +21,4 @@ PROMPT='
 %{$fg[yellow]%}${PWD/#$HOME/~}%{$reset_color%} : ${redgreen}$history[$[HISTCMD-1]]%{$reset_color%}
 $(prompt_char)  %{$reset_color%}'
 
-RPROMPT='%{$fg[white]%} $($ZSHDIR/bin/scm-cwd-info.rb)%{$reset_color%}'
+#RPROMPT='%{$fg[white]%} $($ZSHDIR/bin/scm-cwd-info.rb)%{$reset_color%}'

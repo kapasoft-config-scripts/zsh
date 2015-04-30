@@ -16,7 +16,7 @@
 # git commands
 
 def git_repo_path
-  @git_repo_path ||= `git rev-parse --git-dir 2>/dev/null`.strip
+  git_repo_path ||= `git rev-parse --git-dir 2>/dev/null`.strip
   # @git_repo_path
 end
 
