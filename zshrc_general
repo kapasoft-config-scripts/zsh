@@ -19,54 +19,54 @@ export WIDGET_BUILD_ROOT='/Users/maxit/Sites/drupal/config'
 export PHPRC=/etc/php5/apache2/php.ini
 
 #export PYTHONPATH=/usr/local/lib/python2.6/site-packages
-export PYTHONPATH=/Library/Python/2.7/site-packages
+#export PYTHONPATH=/Library/Python/2.7/site-packages
 
 #export M2_HOME=/usr/local/maven
 #export M2=$M2_HOME/bin
 
 export CLICOLOR="xterm-color"
 
-export VERBOSE="nil"
+#export VERBOSE="nil"
 
-export USER_LIB=/Users/$USER/Documents/workspace/lib
+#export USER_LIB=/Users/$USER/Documents/workspace/lib
  
 #export JAVA_HOME=$(/usr/libexec/java_home)
 
-export SCALA_HOME=/usr/local/scala
-export NODE_PATH=/usr/local/lib/node_modules
-export SVN_EDITOR='/usr/local/bin/mate -w'
+#export SCALA_HOME=/usr/local/scala
+#export NODE_PATH=/usr/local/lib/node_modules
+#export SVN_EDITOR='/usr/local/bin/mate -w'
 
 #export JAVA_OPTS="-Xms1538m -Xmx1538m -XX:MaxPermSize=512m"
-export JAVA_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
+#export JAVA_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
 
 #export GRADLE_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=1024m"
-export GRADLE_HOME='/Users/maxit/DevTools/Gradle/gradle-1.6'
-export GRADLE_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
-export GRADLE_REPOSITORY="$HOME/.gradle"
+#export GRADLE_HOME='/Users/maxit/DevTools/Gradle/gradle-1.6'
+#export GRADLE_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
+#export GRADLE_REPOSITORY="$HOME/.gradle"
 
 # for X11 forwarding, (need to have X11.app running (in applications/utilities after install))
-export DISPLAY="localhost:0.0"
+#export DISPLAY="localhost:0.0"
 
 export WORKSPACE_DIR=~/workspace
 export WORKFLOW_DIR=~/ds_workflow
 export WORKSPACE_PERS_DIR=~/workspace-personal
-export CATALINA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8999,server=y,suspend=n -Djava.awt.headless=true'
-export CATALINA_HOME='/usr/local/tomcat'
+#export CATALINA_OPTS='-Xdebug -Xrunjdwp:transport=dt_socket,address=8999,server=y,suspend=n -Djava.awt.headless=true'
+#export CATALINA_HOME='/usr/local/tomcat'
 
-export GRAILS_HOME='/Users/maxit/DevTools/grails/grails-2.1.2'
-export JODA_TIME_HOME='/DevTools/joda-time/joda-time-2.1'
-export JODA_TIME_HIBERNATE='/DevTools/joda-time-hibernate/joda-time-hibernate-1.3'
-export GRAILS_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=1024m"
-export GROOVY_HOME='/Users/maxit/DevTools/groovy-2.1.3'
-export VERTX_HOME='/usr/local/vertx'
-export DEV_TOOLS='/Users/maxit/DevTools'
+#export GRAILS_HOME='/Users/maxit/DevTools/grails/grails-2.1.2'
+#export JODA_TIME_HOME='/DevTools/joda-time/joda-time-2.1'
+#export JODA_TIME_HIBERNATE='/DevTools/joda-time-hibernate/joda-time-hibernate-1.3'
+#export GRAILS_OPTS="-Xms2048m -Xmx2048m -XX:MaxPermSize=1024m"
+#export GROOVY_HOME='/Users/maxit/DevTools/groovy-2.1.3'
+#export VERTX_HOME='/usr/local/vertx'
+#export DEV_TOOLS='/Users/maxit/DevTools'
 
-export MONGODB_HOME='/usr/local/mongodb'
+#export MONGODB_HOME='/usr/local/mongodb'
 
 #export RUBYOPT=rubygems
-export REDIS_HOME='/Users/maxit/DevTools/redis-2.6.11'
+#export REDIS_HOME='/Users/maxit/DevTools/redis-2.6.11'
 
-PATH="$REDIS_HOME/src:/opt/local/lib/mysql55/bin:/opt/local/bin:/usr/local/bin:$HOME/bin:/usr/local/sbin:$GRAILS_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin:$VERTX_HOME/bin:/usr/local/redis:$CATALINA_HOME/bin:${PATH}:$PATH"
+PATH="/opt/local/bin:/usr/local/bin:$HOME/bin:/usr/local/sbin:$PATH"
 
 export WORDS=/usr/share/dict/words
 
