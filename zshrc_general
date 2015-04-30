@@ -854,12 +854,12 @@ EOF
 
 export HADOOP_VERSION=hadoop-0.20.2-cdh3u3
 #export HADOOP_VERSION=hadoop-0.20.205.0
-export HADOOP_HOME="/usr/local/$HADOOP_VERSION"
-export HADOOP_INSTALL=$HADOOP_HOME
-export PATH=$PATH:$HADOOP_HOME/bin
+#export HADOOP_HOME="/usr/local/$HADOOP_VERSION"
+#export HADOOP_INSTALL=$HADOOP_HOME
+#export PATH=$PATH:$HADOOP_HOME/bin
 
-export HADOOP_HEAPSIZE=2000
-export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc="
+#export HADOOP_HEAPSIZE=2000
+#export HADOOP_OPTS="-Djava.security.krb5.realm= -Djava.security.krb5.kdc="
 
 alias hadoopstart='start-all.sh'
 alias hadoopstop='stop-all.sh'
