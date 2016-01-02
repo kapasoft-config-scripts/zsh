@@ -30,7 +30,7 @@ export CLICOLOR="xterm-color"
 
 #export USER_LIB=/Users/$USER/Documents/workspace/lib
  
-#export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=/usr/libexec/java_home
 
 #export SCALA_HOME=/usr/local/scala
 #export NODE_PATH=/usr/local/lib/node_modules
@@ -66,11 +66,11 @@ export WORKSPACE_PERS_DIR=~/workspace-personal
 #export RUBYOPT=rubygems
 #export REDIS_HOME='/Users/maxit/DevTools/redis-2.6.11'
 
-PATH="/opt/local/bin:/usr/local/bin:$HOME/bin:/usr/local/sbin:$PATH"
+#PATH="/Users/margots/Tools/cloud-foundry:$PATH"
 
-export WORDS=/usr/share/dict/words
+#export WORDS=/usr/share/dict/words
 
-export PATH
+#export PATH
 
 
 ## GENERAL ############################################################################################################
@@ -256,7 +256,7 @@ drush ea update_all_work_dir --asset=$1 --param=$2 $*
 
 
 function show_api(){
-cat ~/tools/zsh/zshrc_general | grep -B $2 -A $3 $1
+cat $ZSHDIR/zshrc_general | grep -B $2 -A $3 $1
 }
 
 
@@ -600,7 +600,7 @@ alias alwaysbedebugginggrails='cp $GRAILS_HOME/bin/grails{,-nd} && sed -e 's/sus
 alias testhtml='open target/**/index.html'
 
 alias gtr='open target/test-reports/html/index.html'
-alias ezs='vim ~/shared-zshrc/zshrc_general'
+alias ezs='vim $ZSHDIR/zshrc_general'
 
 #hg shelving
 alias hgli='hg attic'
@@ -723,6 +723,13 @@ function switchGrails() {
 	ls -latr /usr/local/{groovy,grails}
 }
 
+alias switch=switchGailsV2
+
+function switchGrailsV2(){
+	echo "Switching to $1 version: $2"
+	gvm use $1 $2
+}
+
 ## CLOJURE ############################################################################################################
 
 export CLOJURE_JAR=/usr/local/Cellar/clojure/1.3.0/clojure-1.3.0.jar
@@ -755,7 +762,8 @@ function mysqltop() {
 }
 
 ##APACHE######################
-alias ra='sudo /opt/local/apache2/bin/apachectl restart'
+#alias ra='sudo /opt/local/apache2/bin/apachectl restart'
+alias ra='sudo service apache2 restart'
 
 ## REDIS ############################################################################################################
 
