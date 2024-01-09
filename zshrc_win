@@ -1,0 +1,189 @@
+
+##took from internet to execute windows .exe without spelling out the extenions .exe
+#command_not_found_handler(){
+#	if cmd.exe /c "(where $1 || (help $1 |findstr /V Try)) >nul 2>nul && ($* || exit 0)"; then
+#		return $?
+#	else
+#		[[ -x /usr/lib/command-not-found ]] || return 1
+#		/usr/lib/command-not-found --no-failure-msg --${1+"$1"} :
+#	fi	
+#}
+
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="bira"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+#plugins=(git history history-substring-search) 
+plugins=(npm history zsh-autosuggestions sudo web-search copypath copyfile copybuffer dirhistory jsontools zsh-syntax-highlighting) 
+source $ZSH/oh-my-zsh.sh
+#source ~/.zshrc
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#RPROMPT=%F{025}%d
+export FPATH=/home/margots/my-zsh/my-zsh-functions:$FPATH
+
+##Setting alias
+alias c=clear
+alias cpath=copypath
+alias cfile=copyfile
+alias src='source ~/.zshrc'
+#alias csc=csc.exe #compiler for C#
+alias ildasm=ildasm.exe #utility to see what is compiled
+#alias node=node.exe #run node.exe everythime node is called
+alias atom=atom.exe
+alias rl='(){source ~/.zshrc;}' #reload zsh config
+
+##alias for Git
+alias gs='git status'
+alias gc='(){git commit -m $1;}' 
+alias gd='git diff --color-words' #shows diff between working dir and staged
+alias gdd='git diff --color-words --staged' #shows diff between staged and repository
+alias ga='git add .' #adds all to staging tree
+alias gaa='(){git add $1;}' #adds certain file to the staging tree
+alias gsh='(){git show --color-words $1;}' #inspectds the commit in repo
+
+
+##symbolic links
+hash -d vse='/mnt/c/Users/kapacma/OneDrive - Intrum/My Documents From Local/Visual Studio/'
+
+##symbolic link to developmenet
+hash -d dev='/mnt/c/development/'
+
+##enables or disables zsh features/options. Display all enabled if no input provided
+autoload -U en
+
+##configures zsh by opening to edit .zshrc
+autoload -U co
+
+##enable autoload function with name of the function to load
+autoload -U lo
+
+#searches the command/function by the name
+autoload -U scc
+
+##WINDOWS PATH##
+##pointing to csc compilers
+#export PATH=/mnt/c/Windows/Microsoft.NET/Framework/v4.0.30319:$PATH
+##pointing to vstudio tools like ILDASM
+#export PATH='/mnt/c/Program Files (x86)/Microsoft SDKs/Windows/v10.0A/bin/NETFX 4.8 Tools':$PATH
+##set the dotnet builder to build cross platfrom executables
+#export PATH='/mnt/c/Program Files/dotnet':$PATH
+##pointing to NODE.js
+#exort PATH='/mnt/c/Program Files/nodejs':$PATH
+#pointing to Vue
+#export PATH='/mnt/c/Users/adm-kapacma/AppData/Roaming/npm':$PATH
+#point nodejs
+#export PATH='/mnt/c/Program Files/nodejs':$PATH
+#export PATH='C:\Program Files\Nodejs':$PATH
+
+#autocompletion for git
+fpath=('/mnt/c/Users/adm-kapacma/develop' $fpath)
+
+
+##enable history function grep by the given input
+#autoload -U hi
+#source /home/margots/.oh-my-zsh/custom/plugins/zsh-history-substring-search/zsh-syntax-highlighting.zsh
+#source /home/margots/.oh-my-zsh/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+#bindkey '^[[A' history-substring-search-up
+#bindkey '^[[B' history-substring-search-down
+
+#source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+#
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm/sh" #this load nvm
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
